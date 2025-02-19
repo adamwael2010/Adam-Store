@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Store - PUBG UC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('background.jpg') no-repeat center center/cover;
+            color: white;
+            height: 100vh;
+            margin: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .top-bar {
+            display: flex;
+            gap: 10px;
+        }
+        button {
+            background: #ff9800;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .uc-container {
+            margin-top: 20px;
+        }
+        .uc-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .uc-card {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 150px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .uc-card:hover {
+            background: #ff9800;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Adam Store</h1>
+        <div class="top-bar">
+            <button id="payment-btn">💰 Payment Methods</button>
+            <div class="auth">
+                <button>Sign Up</button>
+                <button>Login</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Payment Methods -->
+    <div id="payment-box" class="hidden">
+        <p> Vodafone Cash: <span class="copy-text" onclick="copyText('01099806347')">01099806347</span></p>
+        <p> Binance: <span class="copy-text" onclick="copyText('739845098')">739845098</span></p>
+    </div>
+
+    <!-- UC Sections -->
+    <section class="uc-container">
+        <h2>Buy PUBG UC</h2>
+        <div class="uc-items">
+            <div class="uc-card" onclick="openUCPage(60)">60 UC 🎮</div>
+            <div class="uc-card" onclick="openUCPage(325)">325 UC 🎮</div>
+            <div class="uc-card" onclick="openUCPage(660)">660 UC 🎮</div>
+            <div class="uc-card" onclick="openUCPage(1800)">1800 UC 🎮</div>
+            <div class="uc-card" onclick="openUCPage(3850)">3850 UC 🎮</div>
+            <div class="uc-card" onclick="openUCPage(8100)">8100 UC 🎮</div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("payment-btn").addEventListener("click", function () {
+            let box = document.getElementById("payment-box");
+            box.classList.toggle("hidden");
+        });
+
+        function openUCPage(amount) {
+            alert("You selected: " + amount + " UC");
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text);
+            alert("Copied: " + text);
+        }
+    </script>
+</body>
+</html>
